@@ -1,0 +1,12 @@
+# less-1
+# 4. Пользователь вводит целое положительное число.
+# Найдите самую большую цифру в числе.
+# Для решения используйте цикл while и арифметические операции.
+user_num = abs(int(input('Введите целое положительное число: ')))
+max_num = user_num % 10
+user_num = user_num // 10
+while user_num > 0:
+    if user_num % 10 > max_num:
+        max_num = user_num % 10
+    user_num = user_num // 10
+print('Максимальная цифра в числе: ', max_num)
