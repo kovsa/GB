@@ -16,11 +16,9 @@ with open("my_file_6.txt", "r") as file_6:
         dict_1.append(string.split()[0].strip())
     print(dict_1)
 with open("my_file_6.txt", "r") as file_6:
-    s = 0
-    for string in file_6.readlines().split('(')[:-1]:
-        r = int(string.rsplit(' ')[1])
-        s += r
-    print(s)
-    #dict_2.append(s)
-    #print(dict_2)
-
+    for line in file_6:
+        name_sum = sum(map(int, "".join([i for i in line if i == " " or i.isdigit()]).split()))
+        dict_2.append(name_sum)
+    print(dict_2)
+dict_all = dict(zip(dict_1, dict_2))
+print(dict_all)
