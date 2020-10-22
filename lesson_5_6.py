@@ -13,12 +13,22 @@ dict_1 = []
 dict_2 = []
 with open("my_file_6.txt", "r") as file_6:
     for string in file_6:
-        dict_1.append(string.split()[0].strip())
-    print(dict_1)
+        dict_1.append(string.split()[0].strip()[0:-1])
 with open("my_file_6.txt", "r") as file_6:
     for line in file_6:
         name_sum = sum(map(int, "".join([i for i in line if i == " " or i.isdigit()]).split()))
         dict_2.append(name_sum)
-    print(dict_2)
 dict_all = dict(zip(dict_1, dict_2))
 print(dict_all)
+# ВАРИАНТ2 -------- С одним словарем---------------------
+print("\n ВАРИАНТ2 -------- С одним словарем---------------------\n")
+dict_3 = []
+with open("my_file_6.txt", "r") as file_6:
+    for string in file_6:
+        name_s = string.split()[0].strip()[0:-1]
+        name_sum = sum(map(int, "".join([i for i in string if i == " " or i.isdigit()]).split()))
+        print(name_s)
+        print(name_sum)
+        dict_3[name_s] = name_sum
+print(dict_3)
+
