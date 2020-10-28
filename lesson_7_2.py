@@ -11,24 +11,30 @@
 
 
 class Clothes:
-    def __init__(self, size, height):
+
+    @staticmethod
+    def value(self):
+        pass
+
+
+class Coat(Clothes):
+    def __init__(self, size):
         self.size = size
+
+    @property
+    def value(self):
+        return self.size / 6.5 + 0.5
+
+
+class Jacket(Clothes):
+    def __init__(self, height):
         self.height = height
 
-
-class MyClass(Clothes):
-    def cloth_coat(self):
-        print(f"Расход ткани на пальто: {self.size / 6.5 + 0.5:.2f}")
-
-    def cloth_jacket(self):
-        print(f"Расход ткани на костюм: {self.height * 2 + 0.3:.2f}")
-
-    def sum_cloth(self):
-        print(f"Общий расход затраченной ткани: {(self.size / 6.5 + 0.5 + self.height * 2 + 0.3):.2f}")
+    @property
+    def value(self):
+        return 2 * self.height + 0.3
 
 
-mc = MyClass(55, 2)
-
-mc.cloth_coat()
-mc.cloth_jacket()
-mc.sum_cloth()
+coat_1 = Coat(56)
+coat_2 = Jacket(2)
+print(f"Общий расход ткани:{coat_1.value+coat_2.value:.2f}")
